@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - Student Dashboard</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        html { scroll-behavior: smooth; }
+        .course-card:hover { transform: scale(1.05); transition: 0.3s; }
+        section { padding: 80px 0; }
+        .sticky-top { top: 0; z-index: 1020; }
+        .platform-badge { font-size: 0.8rem; }
+    </style>
+</head>
+<body onload="homeLoaded()">
+
+<!-- Navbar Section -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow sticky-top">
+  <div class="container">
+    <a class="navbar-brand" href="#">StudentInfo</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navMenu">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+        <li class="nav-item"><a class="nav-link" href="#api-section">API Demo</a></li>
+        <li class="nav-item"><a class="nav-link" href="#platforms">Platforms</a></li>
+        <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+        <li class="nav-item"><a class="nav-link btn btn-danger btn-sm text-white ms-lg-3" href="register.html">Logout</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="container mt-5">
+    <!-- Courses Section -->
+    <h3 class="mb-4">Internal Courses</h3>
+    <div class="row g-4 justify-content-center">
+        <div class="col-md-4">
+            <div class="card h-100 p-4 border-primary course-card shadow-sm text-center">
+                <h3>HTML Mastery</h3>
+                <a href="https://www.w3schools.com/html/" target="_blank" class="btn btn-primary mt-auto">Start Course</a>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card h-100 p-4 border-warning course-card shadow-sm text-center">
+                <h3>CSS Design</h3>
+                <a href="https://www.w3schools.com/css/" target="_blank" class="btn btn-warning mt-auto text-white">Start Course</a>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card h-100 p-4 border-success course-card shadow-sm text-center">
+                <h3>JavaScript Pro</h3>
+                <a href="https://www.w3schools.com/js/" target="_blank" class="btn btn-success mt-auto">Start Course</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- API Section -->
+    <section id="api-section" class="bg-dark text-white p-5 rounded mt-5">
+        <div class="text-center">
+            <h2>Live API Data Example</h2>
+            <p>Click the button below to fetch real data from an external URL.</p>
+            <button class="btn btn-outline-light mb-4" onclick="fetchApiData()">Fetch Student Data</button>
+            
+            <!-- This is where the API data will show -->
+            <div id="api-content" class="row justify-content-center g-3">
+                <!-- Data will be injected here by script.js -->
+            </div>
+        </div>
+    </section>
+
+    <!-- More Free Platforms Section -->
+    <section id="platforms">
+        <h3 class="mb-4 text-primary text-center">More Free Learning Platforms</h3>
+        <div class="row g-3">
+            <!-- Platform 1 -->
+            <div class="col-md-6">
+                <a href="https://www.w3schools.com" target="_blank" class="list-group-item list-group-item-action border p-3 shadow-sm rounded">
+                    <div class="d-flex justify-content-between">
+                        <strong>W3Schools</strong>
+                        <span class="badge bg-success platform-badge">Free Tutorials</span>
+                    </div>
+                    <small class="text-muted">Interactive web development documentation.</small>
+                </a>
+            </div>
+            <!-- Platform 2 -->
+            <div class="col-md-6">
+                <a href="https://www.freecodecamp.org" target="_blank" class="list-group-item list-group-item-action border p-3 shadow-sm rounded">
+                    <div class="d-flex justify-content-between">
+                        <strong>freeCodeCamp</strong>
+                        <span class="badge bg-primary platform-badge">Certifications</span>
+                    </div>
+                    <small class="text-muted">Learn to code for free with projects.</small>
+                </a>
+            </div>
+            <!-- Platform 3 -->
+            <div class="col-md-6">
+                <a href="https://www.geeksforgeeks.org" target="_blank" class="list-group-item list-group-item-action border p-3 shadow-sm rounded">
+                    <div class="d-flex justify-content-between">
+                        <strong>GeeksforGeeks</strong>
+                        <span class="badge bg-warning text-dark platform-badge">DSA & Coding</span>
+                    </div>
+                    <small class="text-muted">A portal for computer science students.</small>
+                </a>
+            </div>
+            <!-- Platform 4 -->
+            <div class="col-md-6">
+                <a href="https://www.sololearn.com" target="_blank" class="list-group-item list-group-item-action border p-3 shadow-sm rounded">
+                    <div class="d-flex justify-content-between">
+                        <strong>SoloLearn</strong>
+                        <span class="badge bg-info platform-badge">Mobile Learning</span>
+                    </div>
+                    <small class="text-muted">Learn on the go with bite-sized lessons.</small>
+                </a>
+            </div>
+            <!-- Platform 5 -->
+            <div class="col-md-6">
+                <a href="https://developer.mozilla.org" target="_blank" class="list-group-item list-group-item-action border p-3 shadow-sm rounded">
+                    <div class="d-flex justify-content-between">
+                        <strong>MDN Web Docs</strong>
+                        <span class="badge bg-dark platform-badge">Official Documentation</span>
+                    </div>
+                    <small class="text-muted">The best resource for web technologies.</small>
+                </a>
+            </div>
+            <!-- Platform 6 -->
+            <div class="col-md-6">
+                <a href="https://www.khanacademy.org/computing" target="_blank" class="list-group-item list-group-item-action border p-3 shadow-sm rounded">
+                    <div class="d-flex justify-content-between">
+                        <strong>Khan Academy</strong>
+                        <span class="badge bg-secondary platform-badge">Computer Science</span>
+                    </div>
+                    <small class="text-muted">Foundational coding courses for all ages.</small>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="bg-light p-5 rounded">
+        <h2>About StudentInfo</h2>
+        <p>This portal helps students learn the latest technologies through curated resources and real-world API practice.</p>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="mt-5">
+        <h3>Contact Us</h3>
+        <p>Email: support@studentinfo.com | Phone: +91 00000 00000</p>
+    </section>
+</div>
+
+<footer class="py-4 bg-dark text-white text-center mt-5">
+    <p>&copy; 2026 Student_Knowledge_Gain. All Rights Reserved.</p>
+</footer>
+
+<!-- IMPORTANT: Link script.js at the end -->
+<script src="script.js"></script>
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
